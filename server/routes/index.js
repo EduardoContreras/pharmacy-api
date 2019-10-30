@@ -2,12 +2,13 @@ const pharmacyController = require('../controllers/pharmacyController');
 
 const routes = [{
   method: 'GET',
-  url: '/api/pharmacy',
+  // url: '/api/pharmacy',
+  url: '/api/v1/pharmacy/enabled',
   schema: {
     description: 'Service for know enabled pharmacies in metropolitan region of Chile',
     summary: 'Service for know enabled pharmacies in metropolitan region of Chile',
     tags: ['Pharmacy'],
-    hide: true,
+    headers: {},
     querystring: {
       type: 'object',
         properties: {

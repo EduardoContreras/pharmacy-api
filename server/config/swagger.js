@@ -1,5 +1,7 @@
 exports.options = {
-  routePrefix: '/documentation',
+  routePrefix: '/api/v1/pharmacy/documentation',
+  // routePrefix: '/api/v1/pharmacy/documentation',
+  // routePrefix: '/api/'+process.env.API_VS+'/appointments/documentation',
   exposeRoute: true,
   swagger: {
     info: {
@@ -11,7 +13,7 @@ exports.options = {
       url: 'https://swagger.io',
       description: 'Find more info here'
     },
-    host: 'localhost',
+    host: 'localhost:3000',
     schemes: ['http','https'],
     consumes: ['application/json'],
     produces: ['application/json'],

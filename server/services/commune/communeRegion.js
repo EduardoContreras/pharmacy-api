@@ -1,5 +1,5 @@
 const boom = require('boom');
-const axios = require("axios");
+const axios = require('axios');
 const { getCleanData } = require('../../helpers/utils');
 const querystring = require('querystring');
 

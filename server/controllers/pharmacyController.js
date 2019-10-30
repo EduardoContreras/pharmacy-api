@@ -17,7 +17,6 @@ exports.getEnabledPharmacy = async (req, reply) => {
       const foundPharmacies = findPharmacies(responsePharmacies.data, pharmacyName, foundCommune.id);
       if (!isUndefined(foundPharmacies) && !isEmpty(foundPharmacies)) {
         return getPharmaciesLocation(foundPharmacies);
-        // reply.code(200).send(getPharmaciesLocation(foundPharmacies));
       } else {
         throw new CustomError('I dont found the pharmacies for current commune...');
       }
