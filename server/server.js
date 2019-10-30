@@ -1,4 +1,4 @@
-
+// Import Routes
 const routes = require('./routes');
 
 // Import Swagger Options
@@ -10,14 +10,9 @@ const fastify = module.exports = require('fastify')({ logger: true });
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options);
 
+// Load Routes
 routes.forEach((route, index) => {
   fastify.route(route);
-});
-
-// Declare a route
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world, servicio corriendo! Edu!' };
-  // reply.send('servicio corriendo! Edu!\n');
 });
 
 // Run the server!
@@ -32,4 +27,5 @@ const start = async () => {
   }
 };
 
+// Start Server.
 start();

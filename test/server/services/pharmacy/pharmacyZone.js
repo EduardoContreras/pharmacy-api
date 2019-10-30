@@ -7,11 +7,11 @@ const expect = chai.expect;
 chai.use(chaiExclude);
 chai.should();
 
-require('../../../server/server');
+require('../../../../server/server');
 
-const CustomError = require('../../../server/helpers/errors');
-const METROPOLITAN_REGION_ID = require('../../../server/config/constants');
-const { getPharmaciesByRegionId } = require('../../../server/services/pharmacy/pharmacyZone');
+const CustomError = require('../../../../server/helpers/errors');
+const METROPOLITAN_REGION_ID = require('../../../../server/config/constants');
+const { getPharmaciesByRegionId } = require('../../../../server/services/pharmacy/pharmacyZone');
 
 describe('Service pharmacyZone', async () => {
   beforeEach(done => {

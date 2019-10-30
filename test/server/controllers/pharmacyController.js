@@ -7,7 +7,7 @@ const expect = chai.expect;
 chai.use(chaiExclude);
 chai.should();
 
-require('../../server/server');
+require('../../../server/server');
 
 const config = {
   headers: { 'Content-Type':'application/json' },

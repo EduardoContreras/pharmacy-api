@@ -1,8 +1,7 @@
 const pharmacyController = require('../controllers/pharmacyController');
-
+const health = require('../../health/healthCheck');
 const routes = [{
   method: 'GET',
-  // url: '/api/pharmacy',
   url: '/api/v1/pharmacy/enabled',
   schema: {
     description: 'Service for know enabled pharmacies in metropolitan region of Chile',
@@ -107,6 +106,43 @@ const routes = [{
     }
   },
   handler: pharmacyController.getEnabledPharmacy
+},
+{
+  method: 'GET',
+  url: '/api/v1/pharmacy/healthCheck',
+  schema: {
+      hide:false,
+      description: 'Service to monitor microservice health check',
+      summary: 'Service to monitor microservice health check',
+      tags:['Health'],
+      response: {
+        '200': {
+          type: 'object',
+          description: 'Successful health microservice',
+          properties: {
+            statusCode:{
+              type: 'integer' 
+            },
+            status:{
+              type: 'string' 
+            }
+          }
+        },
+        '500': {
+          type: 'object',
+          description: 'Internal server error',
+          properties: {
+            statusCode:{
+              type: 'integer' 
+            },
+            status:{
+              type: 'string' 
+            }
+          }
+        }
+      }
+  },
+  handler: health.check
 }];
 
 module.exports = routes;

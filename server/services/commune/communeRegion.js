@@ -9,6 +9,7 @@ const config = {
 };
 const getData = (regId) => querystring.stringify({ reg_id: regId });
 
+// Get communes by region id
 const getCommunesByRegionId = async (regId) => {
   try {
     const data = getData(regId);

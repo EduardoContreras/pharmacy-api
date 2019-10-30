@@ -8,6 +8,7 @@ const config = {
 
 const getUrl = (idRegion) => `${url}?id_region=${idRegion}`;
 
+// Get pharmacies by region id
 const getPharmaciesByRegionId = async (idRegion) => {
   try {
     return await axios.get(getUrl(idRegion), config);
