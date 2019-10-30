@@ -9,6 +9,8 @@ chai.should();
 
 require('../../../server/server');
 
+const { ERRORS_MSG } = require('../../../server/config/constants');
+
 const config = {
   headers: { 'Content-Type':'application/json' },
 };
@@ -40,7 +42,7 @@ describe('Pharmacy Endpoints', async () => {
             const { response } = error;
             const { data } = response;
             expect(data.statusCode).to.be.equal(409);
-            expect(data.message).to.be.equal('I dont found the commune...');
+            expect(data.message).to.be.equal(ERRORS_MSG.NOT_FOUND_COMMUNE);
             expect(error.message).to.be.equal('Request failed with status code 409');
           }
         });
@@ -51,7 +53,7 @@ describe('Pharmacy Endpoints', async () => {
             const { response } = error;
             const { data } = response;
             expect(data.statusCode).to.be.equal(409);
-            expect(data.message).to.be.equal('I dont found the pharmacies for current commune...');
+            expect(data.message).to.be.equal(ERRORS_MSG.NOT_FOUND_PHARMACIES_FOR_CURRENT_COMMUNE);
             expect(error.message).to.be.equal('Request failed with status code 409');
           }
         });

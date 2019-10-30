@@ -1,7 +1,7 @@
 const boom = require('boom');
 const CustomError = require('../helpers/errors');
 const { isUndefined, isEmpty, toUpper } = require('lodash');
-const { METROPOLITAN_REGION_ID } = require('../config/constants');
+const { METROPOLITAN_REGION_ID, ERRORS_MSG } = require('../config/constants');
 const { findCommune, findPharmacies, getPharmaciesLocation } = require('../helpers/utils');
 const { getCommunesByRegionId } = require('../services/commune/communeRegion');
 const { getPharmaciesByRegionId } = require('../services/pharmacy/pharmacyZone');
@@ -18,10 +18,10 @@ exports.getEnabledPharmacy = async (req, reply) => {
       if (!isUndefined(foundPharmacies) && !isEmpty(foundPharmacies)) {
         return getPharmaciesLocation(foundPharmacies);
       } else {
-        throw new CustomError('I dont found the pharmacies for current commune...');
+        throw new CustomError(ERRORS_MSG.NOT_FOUND_PHARMACIES_FOR_CURRENT_COMMUNE);
       }
     } else {
-      throw new CustomError('I dont found the commune...');
+      throw new CustomError(ERRORS_MSG.NOT_FOUND_COMMUNE);
     } 
   } catch (err) {
     throw boom.boomify(err);

@@ -9,6 +9,9 @@ const PHARMACY_COMMUNE = 'comuna_nombre';
 const FK_COMMUNE = 'fk_comuna';
 const NA = 'N/A';
 const VALUE = 'value';
+const ERRORS_MSG = {
+  NOT_FOUND_PHARMACIES_FOR_CURRENT_COMMUNE: 'I dont found the pharmacies for current commune...'
+};
 
 const PHARMACY_ATTRIBUTES = {
   NAME: PHARMACY_NAME,
@@ -25,4 +28,5 @@ module.exports = {
   NA,
   FK_COMMUNE,
   VALUE,
+  ERRORS_MSG,
 };
