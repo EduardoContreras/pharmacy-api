@@ -7,6 +7,9 @@ const swagger = require('./config/swagger');
 // Require the framework and instantiate it
 const fastify = module.exports = require('fastify')({ logger: true });
 
+// Import Cors
+fastify.register(require('fastify-cors'), {});
+
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options);
 
